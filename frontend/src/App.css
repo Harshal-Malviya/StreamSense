@@ -1,0 +1,537 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+
+
+
+* {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+}
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  background:
+    linear-gradient(to right, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9)),
+    url('background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* 🚫 prevents scrolling */
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+
+
+
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+/*rounded corners*/
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  background: transparent;
+  color: #ffffff;
+  animation: fadeIn 1s ease-in;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+ 
+}
+
+
+
+
+.search-bar {
+  display: flex;
+  width: 90%;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s;
+}
+
+
+
+
+.search-bar input {
+  flex: 1;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: white;
+  outline: none;
+}
+
+
+
+
+.search-bar button {
+  padding: 0.8rem 1.2rem;
+  margin-left: 10px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+
+
+
+.search-bar button:hover {
+  background: linear-gradient(90deg, #e52e71, #ff8a00);
+}
+
+
+
+
+.results {
+  width: 90%;
+  max-width: 1200px;
+  animation: slideUp 0.6s ease-in-out;
+}
+
+
+
+
+.movie {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+}
+
+
+
+
+.movie-poster {
+  transition: all 0.5s ease;
+  filter: brightness(0.95);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+
+.movie-poster:hover {
+  filter: brightness(1.05) contrast(1.1);
+  box-shadow: 0 12px 30px rgba(244, 124, 32, 0.3);
+  transform: scale(1.03);
+}
+
+
+
+
+.movie-title {
+  font-size: 1.6rem;
+  margin: 0.5rem 0;
+}
+
+
+
+
+.genre-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+
+
+
+.genre-badge {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.3rem 0.7rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+
+
+
+
+.watch-now {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background: #00adb5;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+
+
+
+.watch-now:hover {
+  background: #02c7cf;
+}
+
+
+
+
+.recommendations {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+
+
+
+.movie-card {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+}
+
+
+.movie-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px -10px rgba(244, 124, 32, 0.4);
+}
+
+
+.movie-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f47c20, #e52e71);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+
+.movie-card:hover::before {
+  opacity: 1;
+}
+
+
+.movie-card-poster {
+  width: 100px;
+  height: 150px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+
+
+
+.movie-card-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+
+
+.movie-card-details h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+
+
+
+.movie-card-details p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+
+
+
+.movie-card .platform-buttons {
+  margin-top: 0.5rem;
+}
+
+
+
+
+.movie-card .platform-buttons a {
+  display: inline-block;
+  margin: 5px 5px 0 0;
+  padding: 6px 10px;
+  background: transparent;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+
+
+
+.movie-card .platform-buttons a:hover {
+  background: #605a83;
+}
+
+
+
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  animation: fadeIn 1s ease-in;
+}
+
+
+
+
+.app-logo {
+  width: 50px;
+  height: 50px;
+  transform: translateX(25px);
+  margin-top: 4%;
+  object-fit: contain;
+  background: transparent;
+  border-radius: 12px;
+  padding: 2px;
+ 
+}
+.platform-icon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 6px;
+  margin: 0 4px;
+  background-color:transparent;
+  padding: 2px;
+}
+.movie-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 16px;
+  margin: 12px 0;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+
+.movie-info {
+  flex: 1;
+  padding-right: 20px;
+}
+/*rounded corners  */
+.movie-poster {
+ 
+  width: 140px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+
+
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+
+/* Add to App.css */
+.hero-section {
+  animation: gradientShift 15s ease infinite;
+  background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #533483);
+  background-size: 400% 400%;
+}
+
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.rating-container {
+  perspective: 1000px;
+}
+
+
+.rating-bar {
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
+  transform: rotateX(15deg);
+}
+
+
+.rating-bar:hover {
+  transform: rotateX(0deg);
+  box-shadow: 0 5px 15px rgba(244, 124, 32, 0.4);
+}
+/* Skeleton loading animation */
+@keyframes shimmer {
+  0% { background-position: -468px 0; }
+  100% { background-position: 468px 0; }
+}
+
+
+.skeleton {
+  animation: shimmer 1.5s infinite linear;
+  background: linear-gradient(to right, #2d3748 8%, #4a5568 18%, #2d3748 33%);
+  background-size: 800px 104px;
+}
+/* Content by Age Button (already styled inline, but can move here if preferred) */
+.search-bar button.content-by-age {
+  margin-left: 10px;
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  background: #f47c20;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+
+/* Content by Age Page */
+.content-by-age {
+  margin: 20px;
+}
+
+
+.age-section {
+  margin-bottom: 40px;
+}
+
+
+.age-section h2 {
+  color: white;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  font-family: "Poppins", sans-serif;
+}
+
+
+.movie-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding-bottom: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #f47c20 #16213e;
+}
+
+
+.movie-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+
+.movie-scroll::-webkit-scrollbar-track {
+  background: #16213e;
+}
+
+
+.movie-scroll::-webkit-scrollbar-thumb {
+  background: #f47c20;
+  border-radius: 4px;
+}
+
+
+.movie-item {
+  flex: 0 0 auto;
+  width: 150px;
+  cursor: pointer;
+  text-align: center;
+}
+
+
+.movie-poster {
+  width: 150px;
+  height: 225px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+
+.movie-poster:hover {
+  transform: scale(1.05);
+}
+
+
+.poster-placeholder {
+  width: 150px;
+  height: 225px;
+  background: #4b3f2b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.9rem;
+  border-radius: 8px;
+}
+
+
+.movie-title {
+  color: white;
+  font-size: 0.9rem;
+  margin-top: 8px;
+  font-family: "Poppins", sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* Existing styles remain unchanged */
+.loading-more {
+  color: #f47c20;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9rem;
+}
+.search-container {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 20px; /* Space between search bar and content by age button */
+  margin-bottom: 20px;
+}

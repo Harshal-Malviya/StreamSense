@@ -1,0 +1,9 @@
+React
+Flask
+flask-cors
+IMDbPY
+scikit-learn
+pandas
+numpy
+fuzzywuzzy
+python-Levenshtein

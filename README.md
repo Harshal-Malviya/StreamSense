@@ -1,13 +1,21 @@
+# 🎬 StreamSense
 
-StreamSense is a smart movie and TV show recommendation platform built with React and Flask. It helps users discover new content based on their watch history and genre preferences, and provides direct links to popular OTT platforms for instant viewing.
 
-🚀 Features
-🔍 Smart Search: Search for any movie or TV show with fuzzy matching.
 
-🎞️ Personalized Recommendations: Get AI-driven suggestions based on your viewing habits and genre interests.
+**StreamSense** is a smart movie and TV show recommendation platform built using **React** and **Flask**. It helps users discover new content based on their watch history and genre preferences, and provides direct links to popular OTT platforms for instant viewing.
 
-📺 OTT Integration: Quickly access your favorite content across platforms like Netflix, Prime Video, Hulu, and Disney+.
+🔗 **GitHub Repository**: [Harshal-Malviya/StreamSense](https://github.com/Harshal-Malviya/StreamSense)
 
-🌐 Content Details: View genres, reviews, age rating, and more for each title.
+---
 
-💡 Recommendation Engine: Uses content-based filtering for relevant and accurate suggestions.
+## 🚀 Features
+
+- 🔍 **Smart Search** – Search for movies or TV shows using fuzzy matching.
+- 🎞️ **Personalized Recommendations** – AI-powered suggestions tailored to your interests.
+- 📺 **OTT Platform Integration** – Quick access to Netflix, Prime Video, Hulu, and Disney+.
+- 🌐 **Content Details** – View genre, reviews, age ratings, movie posters and more.
+- 💡 **Content-Based Filtering** – Relevant results powered by TF-IDF & cosine similarity.
+
+
+
+
